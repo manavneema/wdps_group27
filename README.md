@@ -15,6 +15,9 @@ docker run -it -v ./:/home/user/app/ karmaresearch/wdps2
 cd app
 python -m venv venv
 source venv/bin/activate
+
+chmod +x setup.sh
+./setup.sh
 pip3 install -r requirements.txt
 python3 entitylinker.py
 ```

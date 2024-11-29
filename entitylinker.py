@@ -36,7 +36,7 @@ NER_TO_DBPEDIA_TYPE = {
     'CARDINAL': [],
 }
 
-model_path = "models/llama-2-7b.Q4_K_M.gguf"
+model_path = "../models/llama-2-7b.Q4_K_M.gguf"
 llm = Llama(model_path=model_path, verbose=False)
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
 
