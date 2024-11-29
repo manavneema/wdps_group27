@@ -37,7 +37,7 @@ docker run --platform linux/arm64 -it -v ./C:/Users/neema/OneDrive/Documents/Rep
 For Mac:
 ```bash
 cd app
-python -m venv venv
+python -m venv venv #not required if done already
 source venv/bin/activate
 
 chmod +x setup.sh
@@ -50,7 +50,7 @@ python3 entitylinker.py input.txt
 For Windows:
 ```bash
 cd app
-python -m venv venv
+python -m venv venv #not required if done already
 source venv/bin/activate
 
 chmod +x setup.sh
