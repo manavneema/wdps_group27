@@ -4,15 +4,11 @@ The entity linking process is executed through the following steps:
 
 1. **Entity Extraction**: Uses spaCy's `en_core_web_md` model to identify and extract entities from the input text.
 
-2. **Type Mapping**: Translates spaCy NER labels to corresponding DBpedia ontology types to categorize entities accurately.
+2. **SPARQL Querying**: Constructs SPARQL queries from the entity texts to retrieve potential DBpedia candidates.
 
-3. **SPARQL Querying**: Constructs SPARQL queries based on the mapped types and entity texts to retrieve potential DBpedia candidates.
+3. **Candidate Retrieval**: Executes the queries against DBpedia's SPARQL endpoint to fetch candidate entities and their abstracts.
 
-4. **Candidate Retrieval**: Executes the queries against DBpedia's SPARQL endpoint to fetch candidate entities and their abstracts.
-
-5. **Contextual Similarity**: Utilizes spaCy's vector representations to calculate similarity between the provided context and each candidate's abstract, selecting the best match.
-
-6. **Logging & Error Handling**: Logs each step and handles exceptions to ensure robust and traceable entity linking. This is between 
+4. **Contextual Similarity**: We calculate cosine similarity between the provided context and each candidate's abstract, selecting the best match.
 
 
 ## How to Run
