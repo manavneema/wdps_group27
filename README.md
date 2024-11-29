@@ -19,5 +19,7 @@ source venv/bin/activate
 chmod +x setup.sh
 ./setup.sh
 pip3 install -r requirements.txt
-python3 entitylinker.py
+python3 entitylinker.py input.txt
 ```
+
+
