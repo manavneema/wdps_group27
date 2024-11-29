@@ -14,7 +14,6 @@ except OSError:
     # print("The 'en_core_web_md' model is not installed. Please run 'python -m spacy download en_core_web_md' to install it.")
     exit(1)
 
-# Define the mapping from spaCy NER labels to DBpedia types
 NER_TO_DBPEDIA_TYPE = {
     'PERSON': ['dbo:Person'],
     'NORP': ['dbo:Organisation', 'dbo:Group'],
@@ -74,7 +73,7 @@ def extract_and_link_entities(text, context):
                     VALUES ?type {{ {type_values} }}
                     ?entity rdf:type ?type .
                     OPTIONAL {{ ?entity dbo:abstract ?abstract . FILTER (lang(?abstract) = 'en') }}
-                    FILTER (lang(?label) = 'en' && regex(str(?label), "^({escaped_entity_text})$", "i"))
+                    FILTER (lang(?label) = 'en' && regex(str(?label), "({escaped_entity_text})", "i"))
                 }}
                 LIMIT 5
                 """
@@ -88,7 +87,7 @@ def extract_and_link_entities(text, context):
                 SELECT DISTINCT ?entity ?abstract WHERE {{
                     ?entity rdfs:label ?label .
                     OPTIONAL {{ ?entity dbo:abstract ?abstract . FILTER (lang(?abstract) = 'en') }}
-                    FILTER (lang(?label) = 'en' && regex(str(?label), "^({escaped_entity_text})$", "i"))
+                    FILTER (lang(?label) = 'en' && regex(str(?label), "({escaped_entity_text})", "i"))
                 }}
                 LIMIT 5
                 """
@@ -204,7 +203,7 @@ def main():
     import sys
 
     if len(sys.argv) != 2:
-        # print("Usage: python scriptname.py inputfile")
+        print("Usage: python scriptname.py inputfile")
         exit(1)
     input_filename = sys.argv[1]
     output_filename = 'output.txt'
