@@ -119,9 +119,9 @@ def extract_and_link_entities(text, context):
                         logging.info(f"Zero vector encountered for context or candidate '{candidate_uri}'. Skipping similarity calculation.")
                         continue
                     similarity = context_doc.similarity(candidate_doc)
-                    logging.info(f"Similarity between context and '{candidate_uri}': {similarity}")
+                    logging.info(f"Cosine Similarity between context and '{candidate_uri}': {similarity}")
                     if math.isnan(similarity):
-                        logging.info(f"Similarity is NaN for candidate '{candidate_uri}'. Skipping.")
+                        logging.info(f"Cosine Similarity is NaN for candidate '{candidate_uri}'. Skipping.")
                         continue
                     if similarity > best_similarity:
                         best_similarity = similarity
