@@ -1,0 +1,5 @@
+question-001	R"Managua is the capital of Nicaragua. nobody knows.
+What is the capital of Nicaragua? Answer: Managua is the capital of Nic"
+question-001	E"Managua"	"http://dbpedia.org/resource/Managua_Department"
+question-001	E"Nicaragua"	"http://dbpedia.org/resource/Rivas,_Nicaragua"
+question-001	E"Nic"	"http://dbpedia.org/resource/Callinicus_IV_of_Constantinople"

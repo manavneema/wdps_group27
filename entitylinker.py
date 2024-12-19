@@ -1,10 +1,13 @@
 import re
+from datetime import datetime
+
 from llama_cpp import Llama
 import spacy
 from SPARQLWrapper import SPARQLWrapper, JSON
 import warnings
 import math
 import logging
+from factchecker import validate_claim
 
 logging.basicConfig(filename='entity_linker.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -38,6 +41,48 @@ NER_TO_DBPEDIA_TYPE = {
 model_path = "../models/llama-2-7b.Q4_K_M.gguf"
 llm = Llama(model_path=model_path, verbose=False)
 sparql = SPARQLWrapper("http://dbpedia.org/sparql")
+
+def extract_dates(text):
+    doc = nlp(text)
+    dates = [ent.text for ent in doc.ents if ent.label_ == "DATE"]
+    return dates
+
+def is_date_recent(dates, threshold_years=3):
+    """
+    Check if any extracted dates are within the threshold years from today.
+    """
+    current_year = datetime.now().year
+    for date_str in dates:
+        try:
+            year = int(re.search(r"\b(\d{4})\b", date_str).group(1))
+            if current_year - year <= threshold_years:
+                return True
+        except Exception as e:
+            logging.warning(f"Could not parse year from date '{date_str}': {e}")
+    return False
+
+def validate_source(uri):
+    """
+    Validate if the source of the information is reputable (e.g., from DBpedia or Wikipedia).
+    """
+    trusted_sources = ["dbpedia.org", "wikipedia.org"]
+    for source in trusted_sources:
+        if source in uri:
+            return True
+    return False
+
+def fact_check_entity(uri, abstract):
+    """
+    Fact-check each entity by validating its source and checking the recency of dates in its abstract.
+    """
+    source_valid = validate_source(uri)
+    dates = extract_dates(abstract)
+    recent_info = is_date_recent(dates)
+    return {
+        'source_valid': source_valid,
+        'recent_info': recent_info,
+        'dates': dates
+    }
 
 def escape_sparql_regex(text):
     return text.replace('\\', '\\\\').replace('"', '\\"')
@@ -169,6 +214,11 @@ def process_question(question_id, question_text):
 
     entities_list = list(unique_entities.items())
     extracted_answer = llm_output_text
+
+    for entity, uri in entities_list:
+        is_valid = validate_claim(entity, extracted_answer)
+        if not is_valid:
+            logging.warning(f"Validation failed for entity '{entity}' with answer '{extracted_answer}'")
     result = {
         'llm_output': llm_output_text,
         'entities': entities_list

@@ -1,0 +1,57 @@
+2024-11-30 10:20:17,938:INFO:Program started.
+2024-11-30 10:20:17,945:INFO:Asking the question "Is Managua the capital of Nicaragua?" to ../models/llama-2-7b.Q4_K_M.gguf (wait, it can take some time...)
+2024-11-30 10:20:28,545:INFO:LLM Output: [{'text': ' Managua is the capital of Nicaragua. nobody knows.\nWhat is the capital of Nicaragua? Answer: Managua is the capital of Nic', 'index': 0, 'logprobs': None, 'finish_reason': 'length'}]
+2024-11-30 10:20:28,546:INFO:Processed LLM Output: "Managua is the capital of Nicaragua. nobody knows.
+What is the capital of Nicaragua? Answer: Managua is the capital of Nic"
+2024-11-30 10:20:28,639:INFO:Extracted Entities: [('Managua', 'GPE'), ('Nicaragua', 'GPE')]
+2024-11-30 10:20:28,640:INFO:Processing entity: "Managua" with label "GPE"
+2024-11-30 10:20:31,807:INFO:Candidates for 'Managua': ['http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua', 'http://dbpedia.org/resource/Managua_Department', 'http://dbpedia.org/resource/Managua']
+2024-11-30 10:20:31,862:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua': 0.6379813465922557
+2024-11-30 10:20:31,890:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua_Department': 0.8464520778688125
+2024-11-30 10:20:31,939:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua': 0.8207647290793528
+2024-11-30 10:20:31,939:INFO:Using best candidate "http://dbpedia.org/resource/Managua_Department".
+2024-11-30 10:20:31,940:INFO:Processing entity: "Nicaragua" with label "GPE"
+2024-11-30 10:20:35,375:INFO:Candidates for 'Nicaragua': ['http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua', 'http://dbpedia.org/resource/Rivas,_Nicaragua', 'http://dbpedia.org/resource/Matagalpa,_Nicaragua', 'http://dbpedia.org/resource/Granada,_Nicaragua', 'http://dbpedia.org/resource/León,_Nicaragua']
+2024-11-30 10:20:35,401:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua': 0.7408164526175325
+2024-11-30 10:20:35,420:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Rivas,_Nicaragua': 0.8660801583339242
+2024-11-30 10:20:35,421:INFO:No abstract available for 'http://dbpedia.org/resource/Matagalpa,_Nicaragua'. Skipping similarity calculation.
+2024-11-30 10:20:35,462:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Granada,_Nicaragua': 0.826624718039024
+2024-11-30 10:20:35,502:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/León,_Nicaragua': 0.7607760350821894
+2024-11-30 10:20:35,503:INFO:Using best candidate "http://dbpedia.org/resource/Rivas,_Nicaragua".
+2024-11-30 10:20:35,515:INFO:Extracted Entities: [('Managua', 'GPE'), ('Nicaragua', 'GPE'), ('Nicaragua', 'GPE'), ('Managua', 'GPE'), ('Nic', 'PERSON')]
+2024-11-30 10:20:35,516:INFO:Processing entity: "Managua" with label "GPE"
+2024-11-30 10:20:35,830:INFO:Candidates for 'Managua': ['http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua', 'http://dbpedia.org/resource/Managua_Department', 'http://dbpedia.org/resource/Managua']
+2024-11-30 10:20:35,854:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua': 0.6379813465922557
+2024-11-30 10:20:35,873:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua_Department': 0.8464520778688125
+2024-11-30 10:20:35,904:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua': 0.8207647290793528
+2024-11-30 10:20:35,905:INFO:Using best candidate "http://dbpedia.org/resource/Managua_Department".
+2024-11-30 10:20:35,905:INFO:Processing entity: "Nicaragua" with label "GPE"
+2024-11-30 10:20:36,215:INFO:Candidates for 'Nicaragua': ['http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua', 'http://dbpedia.org/resource/Rivas,_Nicaragua', 'http://dbpedia.org/resource/Matagalpa,_Nicaragua', 'http://dbpedia.org/resource/Granada,_Nicaragua', 'http://dbpedia.org/resource/León,_Nicaragua']
+2024-11-30 10:20:36,247:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua': 0.7408164526175325
+2024-11-30 10:20:36,260:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Rivas,_Nicaragua': 0.8660801583339242
+2024-11-30 10:20:36,260:INFO:No abstract available for 'http://dbpedia.org/resource/Matagalpa,_Nicaragua'. Skipping similarity calculation.
+2024-11-30 10:20:36,289:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Granada,_Nicaragua': 0.826624718039024
+2024-11-30 10:20:36,319:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/León,_Nicaragua': 0.7607760350821894
+2024-11-30 10:20:36,319:INFO:Using best candidate "http://dbpedia.org/resource/Rivas,_Nicaragua".
+2024-11-30 10:20:36,320:INFO:Processing entity: "Nicaragua" with label "GPE"
+2024-11-30 10:20:36,794:INFO:Candidates for 'Nicaragua': ['http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua', 'http://dbpedia.org/resource/Rivas,_Nicaragua', 'http://dbpedia.org/resource/Matagalpa,_Nicaragua', 'http://dbpedia.org/resource/Granada,_Nicaragua', 'http://dbpedia.org/resource/León,_Nicaragua']
+2024-11-30 10:20:36,827:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Diocese_of_León_in_Nicaragua': 0.7408164526175325
+2024-11-30 10:20:36,839:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Rivas,_Nicaragua': 0.8660801583339242
+2024-11-30 10:20:36,840:INFO:No abstract available for 'http://dbpedia.org/resource/Matagalpa,_Nicaragua'. Skipping similarity calculation.
+2024-11-30 10:20:36,867:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Granada,_Nicaragua': 0.826624718039024
+2024-11-30 10:20:36,899:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/León,_Nicaragua': 0.7607760350821894
+2024-11-30 10:20:36,899:INFO:Using best candidate "http://dbpedia.org/resource/Rivas,_Nicaragua".
+2024-11-30 10:20:36,899:INFO:Processing entity: "Managua" with label "GPE"
+2024-11-30 10:20:37,325:INFO:Candidates for 'Managua': ['http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua', 'http://dbpedia.org/resource/Managua_Department', 'http://dbpedia.org/resource/Managua']
+2024-11-30 10:20:37,373:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Roman_Catholic_Archdiocese_of_Managua': 0.6379813465922557
+2024-11-30 10:20:37,406:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua_Department': 0.8464520778688125
+2024-11-30 10:20:37,443:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Managua': 0.8207647290793528
+2024-11-30 10:20:37,443:INFO:Using best candidate "http://dbpedia.org/resource/Managua_Department".
+2024-11-30 10:20:37,444:INFO:Processing entity: "Nic" with label "PERSON"
+2024-11-30 10:20:37,868:INFO:Candidates for 'Nic': ['http://dbpedia.org/resource/Cal_Nichols', 'http://dbpedia.org/resource/Calinichia', 'http://dbpedia.org/resource/Caleb_Nichol', 'http://dbpedia.org/resource/Callinicus_IV_of_Constantinople', 'http://dbpedia.org/resource/Callinicus_(Prince_of_Commagene)']
+2024-11-30 10:20:37,950:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Cal_Nichols': 0.5290564750593275
+2024-11-30 10:20:38,000:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Calinichia': 0.6041626347998988
+2024-11-30 10:20:38,000:INFO:No abstract available for 'http://dbpedia.org/resource/Caleb_Nichol'. Skipping similarity calculation.
+2024-11-30 10:20:38,041:INFO:Cosine Similarity between context and 'http://dbpedia.org/resource/Callinicus_IV_of_Constantinople': 0.6153609878079702
+2024-11-30 10:20:38,048:INFO:No abstract available for 'http://dbpedia.org/resource/Callinicus_(Prince_of_Commagene)'. Skipping similarity calculation.
+2024-11-30 10:20:38,049:INFO:Using best candidate "http://dbpedia.org/resource/Callinicus_IV_of_Constantinople".
