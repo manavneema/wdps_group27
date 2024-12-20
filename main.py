@@ -139,14 +139,14 @@ def main():
                 # Write the LLM output
                 outfile.write(f"{question_id}\tR\"{result['llm_output']}\"\n")
 
+                # Write extracted answer and correctness
+                outfile.write(f"{question_id}\tA\"{result['extracted_answer']}\"\n")
+                outfile.write(f"{question_id}\tC\"{result['correctness']}\"\n")
+
                 # Convert DBpedia URIs to Wikipedia URLs and write entities
                 for entity, uri in result['entities']:
                     wikipedia_uri = convert_dbpedia_to_wikipedia(uri)
                     outfile.write(f"{question_id}\tE\"{entity}\"\t\"{wikipedia_uri}\"\n")
-
-                # Write extracted answer and correctness
-                outfile.write(f"{question_id}\tA\"{result['extracted_answer']}\"\n")
-                outfile.write(f"{question_id}\tC\"{result['correctness']}\"\n")
 
 
                 # Optionally, print to console as per the original code
