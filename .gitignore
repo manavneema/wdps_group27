@@ -1,0 +1,33 @@
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Ignore logs
+*.log
+
+# Ignore temporary or output files
+*.txt
+
+# Ignore bash history
+.bash_history
+
+# Ignore compiled code
+*.so
+*.dll
+
+# Ignore miscellaneous files
+.idea/
+.vscode/
+*.swp
+*~

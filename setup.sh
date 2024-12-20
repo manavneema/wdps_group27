@@ -15,10 +15,13 @@ sudo apt-get update && sudo apt-get install -y \
 
 echo "Upgrading pip, setuptools, and wheel..."
 pip install --upgrade pip setuptools wheel --no-cache-dir 
+
+echo "Installing SpaCy and downloading the English model..."
 pip install --prefer-binary spacy --no-cache-dir
 pip install -r requirements.txt --no-cache-dir
 python -m spacy download en_core_web_md
 
+echo "Installing additional libraries for relation extraction..."
+pip install textacy --no-cache-dir
 
 echo "Setup completed successfully!"
-
