@@ -145,14 +145,17 @@ def main():
                     outfile.write(f"{question_id}\tE\"{entity}\"\t\"{wikipedia_uri}\"\n")
 
                 # Write extracted answer and correctness
-                outfile.write(f"{question_id}\tA\"{result['extracted_answer']}\"\tC\"{result['correctness']}\"\n")
+                outfile.write(f"{question_id}\tA\"{result['extracted_answer']}\"\n")
+                outfile.write(f"{question_id}\tC\"{result['correctness']}\"\n")
+
 
                 # Optionally, print to console as per the original code
                 print(f"{question_id}\tR\"{result['llm_output']}\"\n")
                 for entity, uri in result['entities']:
                     wikipedia_uri = convert_dbpedia_to_wikipedia(uri)
                     print(f"{question_id}\tE\"{entity}\"\t\"{wikipedia_uri}\"\n")
-                print(f"{question_id}\tA\"{result['extracted_answer']}\"\tC\"{result['correctness']}\"\n")
+                print(f"{question_id}\tA\"{result['extracted_answer']}\"\n")
+                print(f"{question_id}\tC\"{result['correctness']}\"\n")
 
     except FileNotFoundError:
         logger.error(f"Input file '{input_filename}' not found.")
