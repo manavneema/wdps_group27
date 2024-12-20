@@ -1,4 +1,3 @@
-# fact_checker.py
 import requests
 from transformers import pipeline
 import logging
@@ -27,6 +26,7 @@ class FactChecker:
         Returns:
             list: A list of triplet dictionaries with 'head', 'type', 'tail'.
         """
+        logger.info(f"Extracting triplets from text: {text}")
         triplets = []
         relation, subject, object_ = '', '', ''
         text = text.strip()
@@ -99,6 +99,8 @@ class FactChecker:
         Returns:
             set: A set of relation labels.
         """
+
+        logger.info(f"Getting wikidata relations for subject: '{subj}': object: {obj}")
         if not subj or not obj:
             return set()
 
@@ -162,7 +164,7 @@ class FactChecker:
             logger.error(f"Triplet extraction failed: {e}")
             return 'incorrect'
 
-        logger.debug(f"Extracted Triplets: {extracted_triplets}")
+        logger.info(f"Extracted Triplets: {extracted_triplets}")
 
         # If yes/no answer
         if answer.lower() in ("yes", "no"):
@@ -198,7 +200,7 @@ class FactChecker:
                 relations.update(self.get_wikidata_relations(triplet['head'], entity_name))
                 relations.update(self.get_wikidata_relations(entity_name, triplet['tail']))
 
-                logger.debug(f"Relations List: {relations}")
+                logger.info(f"Relations List: {relations}")
 
                 # There is a relation => correct
                 if triplet['type'] in relations:

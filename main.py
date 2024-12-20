@@ -4,7 +4,7 @@ import logging
 
 from llm import LLMInterface
 from entity_extractor import EntityExtractor
-from answer_extractor import AnswerExtractor, ANSWER_TYPE_YES_NO, ANSWER_TYPE_ENTITY, ANSWER_TYPE_UNKNOWN
+from answer_extractor import AnswerExtractor, ANSWER_TYPE_YES_NO, ANSWER_TYPE_ENTITY
 from fact_checker import FactChecker
 
 # Configure logging once in main.py
