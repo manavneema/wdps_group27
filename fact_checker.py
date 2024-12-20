@@ -156,7 +156,10 @@ class FactChecker:
         entity_name = answer_tuple[1]
 
         # Extract triplets from the raw output
+        logger.info(f"Extracting triplets for prompt: {prompt} and answer: {answer_tuple}")
         try:
+            if not entity_name:
+                entity_name = ""
             generated = self.triplet_extractor("".join((prompt, entity_name)), return_tensors=True, return_text=False)
             extracted_text = self.triplet_extractor.tokenizer.decode(generated[0]["generated_token_ids"])
             extracted_triplets = self.extract_triplets(extracted_text)
